@@ -1,0 +1,337 @@
+<style>
+.lx-highlight { position: relative; border-radius:3px; padding:1px 2px;}
+.lx-highlight .lx-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 6px 8px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  max-width: 240px;
+  white-space: normal;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.lx-highlight:hover .lx-tooltip { visibility: visible; opacity:1; }
+.lx-animated-wrapper { max-width: 100%; font-family: Arial, sans-serif; }
+.lx-controls {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 8px;
+  padding: 12px; margin-bottom: 16px;
+}
+.lx-button-row {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 12px;
+}
+.lx-control-btn {
+  background: #4285f4; color: white; border: none; border-radius: 4px;
+  padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 500;
+  transition: background-color 0.2s;
+}
+.lx-control-btn:hover { background: #3367d6; }
+.lx-progress-container {
+  margin-bottom: 8px;
+}
+.lx-progress-slider {
+  width: 100%; margin: 0; appearance: none; height: 6px;
+  background: #ddd; border-radius: 3px; outline: none;
+}
+.lx-progress-slider::-webkit-slider-thumb {
+  appearance: none; width: 18px; height: 18px; background: #4285f4;
+  border-radius: 50%; cursor: pointer;
+}
+.lx-progress-slider::-moz-range-thumb {
+  width: 18px; height: 18px; background: #4285f4; border-radius: 50%;
+  cursor: pointer; border: none;
+}
+.lx-status-text {
+  text-align: center; font-size: 12px; color: #666; margin-top: 4px;
+}
+.lx-text-window {
+  font-family: monospace; white-space: pre-wrap; border: 1px solid #90caf9;
+  padding: 12px; max-height: 260px; overflow-y: auto; margin-bottom: 12px;
+  line-height: 1.6;
+}
+.lx-attributes-panel {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 6px;
+  padding: 8px 10px; margin-top: 8px; font-size: 13px;
+}
+.lx-current-highlight {
+  border-bottom: 4px solid #ff4444;
+  font-weight: bold;
+  animation: lx-pulse 1s ease-in-out;
+}
+@keyframes lx-pulse {
+  0% { text-decoration-color: #ff4444; }
+  50% { text-decoration-color: #ff0000; }
+  100% { text-decoration-color: #ff4444; }
+}
+.lx-legend {
+  font-size: 12px; margin-bottom: 8px;
+  padding-bottom: 8px; border-bottom: 1px solid #e0e0e0;
+}
+.lx-label {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-right: 4px;
+  color: #000;
+}
+.lx-attr-key {
+  font-weight: 600;
+  color: #1565c0;
+  letter-spacing: 0.3px;
+}
+.lx-attr-value {
+  font-weight: 400;
+  opacity: 0.85;
+  letter-spacing: 0.2px;
+}
+
+/* Add optimizations with larger fonts and better readability for GIFs */
+.lx-gif-optimized .lx-text-window { font-size: 16px; line-height: 1.8; }
+.lx-gif-optimized .lx-attributes-panel { font-size: 15px; }
+.lx-gif-optimized .lx-current-highlight { text-decoration-thickness: 4px; }
+</style>
+    <div class="lx-animated-wrapper lx-gif-optimized">
+      <div class="lx-attributes-panel">
+        <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">character</span></div>
+        <div id="attributesContainer"></div>
+      </div>
+      <div class="lx-text-window" id="textWindow">
+        # 🎯 <span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#D2E3FC;">BGE-M3</span> 文档检索系统演示总结
+
+## 📋 项目概述
+
+成功实现了基于本地 Ollama BGE-M3 模型的文档检索系统，包含多个版本和功能演示。
+
+## 🚀 已完成的功能
+
+### 1. 模型集成方案
+- ✅ **方案1**: <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">LangChain</span> OllamaEmbeddings 集成
+- ✅ **方案2**: 直接 Ollama API 调用
+- ✅ **方案3**: 兼容 <span class="lx-highlight" data-idx="2" style="background-color:#D2E3FC;">BGEM3FlagModel</span> 接口的包装器
+
+### 2. 文档检索系统
+- ✅ **基础检索**: 简单的查询-文档相似度匹配
+- ✅ **高级检索**: 包含元数据、分类、统计功能
+- ✅ **交互式系统**: 命令行交互界面
+- ✅ **演示系统**: 预设查询和结果展示
+
+### 3. 知识库内容
+- 📚 **30+ 技术文档**，涵盖5个主要类别：
+  - 🤖 AI/ML 基础 (7个文档)
+  - 🗣️ NLP 和语言模型 (7个文档)  
+  - 🔍 搜索和检索 (8个文档)
+  - 💾 数据处理和存储 (6个文档)
+  - ☁️ 云计算和架构 (6个文档)
+
+## 📊 系统性能指标
+
+### 模型规格
+- **模型**: bge-m3:567m (本地 Ollama)
+- **参数量**: 566.70M
+- **嵌入维度**: 1024
+- **上下文长度**: 8192 tokens
+- **量化**: F16
+
+### 检索效果
+- **平均相似度**: 0.60-0.70 (高质量匹配)
+- **响应时间**: &lt; 2秒 (30个文档)
+- **准确率**: 高度相关的语义匹配
+
+## 🎯 演示结果展示
+
+### 查询示例 1: &quot;机器学习和深度学习的区别&quot;
+```
+🏆 排名 1 (相似度: 69.3%)
+📄 Deep Learning is a subset of machine learning that uses artificial neural networks with multiple layers to model complex patterns.
+
+🏆 排名 2 (相似度: 59.8%)  
+📄 Machine Learning is a method of data analysis that automates analytical model building using algorithms that iteratively learn from data.
+```
+
+### 查询示例 2: &quot;向量数据库如何进行相似性搜索&quot;
+```
+🏆 排名 1 (相似度: 67.0%)
+📄 Vector search uses mathematical vectors to represent data points and finds similar items by calculating distances in high-dimensional space.
+
+🏆 排名 2 (相似度: 64.8%)
+📄 Vector databases are specialized storage systems optimized for storing, indexing, and querying high-dimensional vector embeddings.
+```
+
+### 查询示例 3: &quot;微服务架构的优势&quot;
+```
+🏆 排名 1 (相似度: 68.4%)
+📄 Microservices architecture structures an application as a collection of loosely coupled services that communicate through APIs.
+
+🏆 排名 2 (相似度: 49.0%)
+📄 Serverless computing allows developers to build and run applications without thinking about servers or infrastructure management.
+```
+
+## 📁 文件结构
+
+```
+<span class="lx-highlight" data-idx="3" style="background-color:#D2E3FC;">LangchainProj</span>/
+├── <span class="lx-highlight" data-idx="4" style="background-color:#D2E3FC;">BGEM3FlagModel.py</span>                    # 主演示文件
+├── <span class="lx-highlight" data-idx="5" style="background-color:#D2E3FC;">BGEM3FlagModel_compatible.py</span>         # 兼容包装器
+├── <span class="lx-highlight" data-idx="6" style="background-color:#D2E3FC;">BGEM3FlagModel_ollama_api</span>.py         # 直接API调用
+├── <span class="lx-highlight" data-idx="7" style="background-color:#D2E3FC;">advanced_retrieval_system.py</span>         # 高级检索系统
+├── <span class="lx-highlight" data-idx="8" style="background-color:#D2E3FC;">interactive_retrieval.py</span>             # 交互式界面
+├── <span class="lx-highlight" data-idx="9" style="background-color:#D2E3FC;">demo_retrieval.py</span>                    # 演示系统
+├── <span class="lx-highlight" data-idx="10" style="background-color:#D2E3FC;">README_ollama_bge_m3.md</span>              # 使用说明
+└── <span class="lx-highlight" data-idx="11" style="background-color:#D2E3FC;">检索系统演示总结.md</span>                   # 本文档
+```
+
+## 🔧 技术特点
+
+### 语义理解能力
+- ✅ 理解查询意图而非仅匹配关键词
+- ✅ 跨语言概念匹配 (英文查询匹配相关概念)
+- ✅ 上下文感知的相似度计算
+
+### 系统架构优势
+- ✅ 本地部署，数据隐私安全
+- ✅ 无需网络连接，响应速度快
+- ✅ 兼容多种接口，易于集成
+- ✅ 模块化设计，便于扩展
+
+### 用户体验
+- ✅ 直观的相似度可视化 (进度条)
+- ✅ 分类标签和元数据展示
+- ✅ 交互式命令行界面
+- ✅ 丰富的帮助和示例
+
+## 🎉 成功验证的功能
+
+### ✅ 核心检索功能
+1. **精确匹配**: 找到最相关的文档
+2. **语义理解**: 理解查询背后的意图
+3. **排序准确**: 相似度排序合理
+4. **多样化结果**: 避免重复，提供不同角度的答案
+
+### ✅ 系统稳定性
+1. **错误处理**: 优雅处理异常情况
+2. **性能稳定**: 批量处理无问题
+3. **内存管理**: 大量文档处理正常
+4. **接口兼容**: 完全兼容原始 BGEM3FlagModel
+
+### ✅ 扩展能力
+1. **知识库扩展**: 轻松添加新文档
+2. **查询类型**: 支持各种问题类型
+3. **输出格式**: 灵活的结果展示
+4. **集成能力**: 易于集成到其他系统
+
+## 💡 使用建议
+
+### 推荐使用场景
+- 🎯 **企业知识库搜索**
+- 🎯 **技术文档检索**  
+- 🎯 **FAQ 自动问答**
+- 🎯 **研究资料查找**
+
+### 最佳实践
+1. **新项目**: 使用 `advanced_retrieval_system.py`
+2. **现有项目**: 使用 `<span class="lx-highlight" data-idx="12" style="background-color:#D2E3FC;">BGEM3FlagModel_compatible.py</span>` 无缝替换
+3. **快速测试**: 运行 `<span class="lx-highlight" data-idx="13" style="background-color:#D2E3FC;">demo_retrieval.py</span>`
+4. **交互使用**: 运行 `<span class="lx-highlight" data-idx="14" style="background-color:#D2E3FC;">interactive_retrieval.py</span>`
+
+## 🔮 未来扩展方向
+
+- 🚀 支持更多文档格式 (<span class="lx-highlight" data-idx="15" style="background-color:#D2E3FC;">PDF</span>, <span class="lx-highlight" data-idx="16" style="background-color:#D2E3FC;">Word</span>, etc.)
+- 🚀 添加文档摘要和关键词提取
+- 🚀 实现增量索引更新
+- 🚀 添加查询历史和推荐
+- 🚀 支持多模态检索 (文本+图像)
+
+---
+
+**总结**: 成功实现了完整的基于 <span class="lx-highlight" data-idx="17" style="background-color:#D2E3FC;">Ollama BGE-M3</span> 的文档检索系统，具备高质量的语义搜索能力，可以准确找到最相关的文档内容。系统设计灵活，易于使用和扩展。
+
+      </div>
+      <div class="lx-controls">
+        <div class="lx-button-row">
+          <button class="lx-control-btn" onclick="playPause()">▶️ Play</button>
+          <button class="lx-control-btn" onclick="prevExtraction()">⏮ Previous</button>
+          <button class="lx-control-btn" onclick="nextExtraction()">⏭ Next</button>
+        </div>
+        <div class="lx-progress-container">
+          <input type="range" id="progressSlider" class="lx-progress-slider"
+                 min="0" max="17" value="0"
+                 onchange="jumpToExtraction(this.value)">
+        </div>
+        <div class="lx-status-text">
+          Entity <span id="entityInfo">1/18</span> |
+          Pos <span id="posInfo">[4-10]</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const extractions = [{"index": 0, "class": "character", "text": "BGE-M3", "color": "#D2E3FC", "startPos": 4, "endPos": 10, "beforeText": "# \ud83c\udfaf ", "extractionText": "BGE-M3", "afterText": " \u6587\u6863\u68c0\u7d22\u7cfb\u7edf\u6f14\u793a\u603b\u7ed3\n\n## \ud83d\udccb \u9879\u76ee\u6982\u8ff0\n\n\u6210\u529f\u5b9e\u73b0\u4e86\u57fa\u4e8e\u672c\u5730 Ollama BGE-M3 \u6a21\u578b\u7684\u6587\u6863\u68c0\u7d22\u7cfb\u7edf\uff0c\u5305\u542b\u591a\u4e2a\u7248\u672c\u548c\u529f\u80fd\u6f14\u793a\u3002\n\n## \ud83d\ude80 \u5df2\u5b8c\u6210\u7684\u529f\u80fd\n\n### 1. \u6a21\u578b\u96c6\u6210\u65b9\u6848\n- \u2705 **\u65b9\u68481**: LangChain OllamaEmbeddings \u96c6\u6210\n- \u2705 **\u65b9\u6848", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">model</span>, <span class=\"lx-attr-key\">platform</span>: <span class=\"lx-attr-value\">Ollama</span>, <span class=\"lx-attr-key\">description</span>: <span class=\"lx-attr-value\">\u6587\u6863\u68c0\u7d22\u7cfb\u7edf</span>}</div>"}, {"index": 1, "class": "character", "text": "LangChain", "color": "#D2E3FC", "startPos": 122, "endPos": 131, "beforeText": "# \ud83c\udfaf BGE-M3 \u6587\u6863\u68c0\u7d22\u7cfb\u7edf\u6f14\u793a\u603b\u7ed3\n\n## \ud83d\udccb \u9879\u76ee\u6982\u8ff0\n\n\u6210\u529f\u5b9e\u73b0\u4e86\u57fa\u4e8e\u672c\u5730 Ollama BGE-M3 \u6a21\u578b\u7684\u6587\u6863\u68c0\u7d22\u7cfb\u7edf\uff0c\u5305\u542b\u591a\u4e2a\u7248\u672c\u548c\u529f\u80fd\u6f14\u793a\u3002\n\n## \ud83d\ude80 \u5df2\u5b8c\u6210\u7684\u529f\u80fd\n\n### 1. \u6a21\u578b\u96c6\u6210\u65b9\u6848\n- \u2705 **\u65b9\u68481**: ", "extractionText": "LangChain", "afterText": " OllamaEmbeddings \u96c6\u6210\n- \u2705 **\u65b9\u68482**: \u76f4\u63a5 Ollama API \u8c03\u7528\n- \u2705 **\u65b9\u68483**: \u517c\u5bb9 BGEM3FlagModel \u63a5\u53e3\u7684\u5305\u88c5\u5668\n\n### 2. \u6587\u6863\u68c0\u7d22\u7cfb\u7edf\n- \u2705 **\u57fa\u7840\u68c0\u7d22**: \u7b80\u5355\u7684\u67e5\u8be2-\u6587\u6863\u76f8\u4f3c\u5ea6\u5339\u914d\n- \u2705 **\u9ad8\u7ea7\u68c0\u7d22**: \u5305\u542b\u5143\u6570", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">integration</span>, <span class=\"lx-attr-key\">function</span>: <span class=\"lx-attr-value\">OllamaEmbeddings \u96c6\u6210</span>}</div>"}, {"index": 2, "class": "character", "text": "BGEM3FlagModel", "color": "#D2E3FC", "startPos": 198, "endPos": 212, "beforeText": "ma BGE-M3 \u6a21\u578b\u7684\u6587\u6863\u68c0\u7d22\u7cfb\u7edf\uff0c\u5305\u542b\u591a\u4e2a\u7248\u672c\u548c\u529f\u80fd\u6f14\u793a\u3002\n\n## \ud83d\ude80 \u5df2\u5b8c\u6210\u7684\u529f\u80fd\n\n### 1. \u6a21\u578b\u96c6\u6210\u65b9\u6848\n- \u2705 **\u65b9\u68481**: LangChain OllamaEmbeddings \u96c6\u6210\n- \u2705 **\u65b9\u68482**: \u76f4\u63a5 Ollama API \u8c03\u7528\n- \u2705 **\u65b9\u68483**: \u517c\u5bb9 ", "extractionText": "BGEM3FlagModel", "afterText": " \u63a5\u53e3\u7684\u5305\u88c5\u5668\n\n### 2. \u6587\u6863\u68c0\u7d22\u7cfb\u7edf\n- \u2705 **\u57fa\u7840\u68c0\u7d22**: \u7b80\u5355\u7684\u67e5\u8be2-\u6587\u6863\u76f8\u4f3c\u5ea6\u5339\u914d\n- \u2705 **\u9ad8\u7ea7\u68c0\u7d22**: \u5305\u542b\u5143\u6570\u636e\u3001\u5206\u7c7b\u3001\u7edf\u8ba1\u529f\u80fd\n- \u2705 **\u4ea4\u4e92\u5f0f\u7cfb\u7edf**: \u547d\u4ee4\u884c\u4ea4\u4e92\u754c\u9762\n- \u2705 **\u6f14\u793a\u7cfb\u7edf**: \u9884\u8bbe\u67e5\u8be2\u548c\u7ed3\u679c\u5c55\u793a\n\n### 3. \u77e5\u8bc6\u5e93\u5185\u5bb9\n- \ud83d\udcda **30+ ", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">interface</span>, <span class=\"lx-attr-key\">description</span>: <span class=\"lx-attr-value\">\u5305\u88c5\u5668</span>}</div>"}, {"index": 3, "class": "character", "text": "LangchainProj", "color": "#D2E3FC", "startPos": 1778, "endPos": 1791, "beforeText": "Serverless computing allows developers to build and run applications without thinking about servers or infrastructure management.\n```\n\n## \ud83d\udcc1 \u6587\u4ef6\u7ed3\u6784\n\n```\n", "extractionText": "LangchainProj", "afterText": "/\n\u251c\u2500\u2500 BGEM3FlagModel.py                    # \u4e3b\u6f14\u793a\u6587\u4ef6\n\u251c\u2500\u2500 BGEM3FlagModel_compatible.py         # \u517c\u5bb9\u5305\u88c5\u5668\n\u251c\u2500\u2500 BGEM3FlagModel_ollama_api.py         # \u76f4\u63a5API\u8c03\u7528", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">directory</span>}</div>"}, {"index": 4, "class": "character", "text": "BGEM3FlagModel.py", "color": "#D2E3FC", "startPos": 1797, "endPos": 1814, "beforeText": "g allows developers to build and run applications without thinking about servers or infrastructure management.\n```\n\n## \ud83d\udcc1 \u6587\u4ef6\u7ed3\u6784\n\n```\nLangchainProj/\n\u251c\u2500\u2500 ", "extractionText": "BGEM3FlagModel.py", "afterText": "                    # \u4e3b\u6f14\u793a\u6587\u4ef6\n\u251c\u2500\u2500 BGEM3FlagModel_compatible.py         # \u517c\u5bb9\u5305\u88c5\u5668\n\u251c\u2500\u2500 BGEM3FlagModel_ollama_api.py         # \u76f4\u63a5API\u8c03\u7528\n\u251c\u2500\u2500 advanced_retrieval", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>, <span class=\"lx-attr-key\">purpose</span>: <span class=\"lx-attr-value\">main demonstration file</span>}</div>"}, {"index": 5, "class": "character", "text": "BGEM3FlagModel_compatible.py", "color": "#D2E3FC", "startPos": 1846, "endPos": 1874, "beforeText": " without thinking about servers or infrastructure management.\n```\n\n## \ud83d\udcc1 \u6587\u4ef6\u7ed3\u6784\n\n```\nLangchainProj/\n\u251c\u2500\u2500 BGEM3FlagModel.py                    # \u4e3b\u6f14\u793a\u6587\u4ef6\n\u251c\u2500\u2500 ", "extractionText": "BGEM3FlagModel_compatible.py", "afterText": "         # \u517c\u5bb9\u5305\u88c5\u5668\n\u251c\u2500\u2500 BGEM3FlagModel_ollama_api.py         # \u76f4\u63a5API\u8c03\u7528\n\u251c\u2500\u2500 advanced_retrieval_system.py         # \u9ad8\u7ea7\u68c0\u7d22\u7cfb\u7edf\n\u251c\u2500\u2500 interactive_retrieval.py    ", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>, <span class=\"lx-attr-key\">purpose</span>: <span class=\"lx-attr-value\">compatibility wrapper</span>}</div>"}, {"index": 6, "class": "character", "text": "BGEM3FlagModel_ollama_api", "color": "#D2E3FC", "startPos": 1895, "endPos": 1920, "beforeText": " management.\n```\n\n## \ud83d\udcc1 \u6587\u4ef6\u7ed3\u6784\n\n```\nLangchainProj/\n\u251c\u2500\u2500 BGEM3FlagModel.py                    # \u4e3b\u6f14\u793a\u6587\u4ef6\n\u251c\u2500\u2500 BGEM3FlagModel_compatible.py         # \u517c\u5bb9\u5305\u88c5\u5668\n\u251c\u2500\u2500 ", "extractionText": "BGEM3FlagModel_ollama_api", "afterText": ".py         # \u76f4\u63a5API\u8c03\u7528\n\u251c\u2500\u2500 advanced_retrieval_system.py         # \u9ad8\u7ea7\u68c0\u7d22\u7cfb\u7edf\n\u251c\u2500\u2500 interactive_retrieval.py             # \u4ea4\u4e92\u5f0f\u754c\u9762\n\u251c\u2500\u2500 demo_retrieval.py        ", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>}</div>"}, {"index": 7, "class": "character", "text": "advanced_retrieval_system.py", "color": "#D2E3FC", "startPos": 1946, "endPos": 1974, "beforeText": " BGEM3FlagModel.py                    # \u4e3b\u6f14\u793a\u6587\u4ef6\n\u251c\u2500\u2500 BGEM3FlagModel_compatible.py         # \u517c\u5bb9\u5305\u88c5\u5668\n\u251c\u2500\u2500 BGEM3FlagModel_ollama_api.py         # \u76f4\u63a5API\u8c03\u7528\n\u251c\u2500\u2500 ", "extractionText": "advanced_retrieval_system.py", "afterText": "         # \u9ad8\u7ea7\u68c0\u7d22\u7cfb\u7edf\n\u251c\u2500\u2500 interactive_retrieval.py             # \u4ea4\u4e92\u5f0f\u754c\u9762\n\u251c\u2500\u2500 demo_retrieval.py                    # \u6f14\u793a\u7cfb\u7edf\n\u251c\u2500\u2500 README_ollama_bge_m3.md        ", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>, <span class=\"lx-attr-key\">purpose</span>: <span class=\"lx-attr-value\">\u9ad8\u7ea7\u68c0\u7d22\u7cfb\u7edf</span>}</div>"}, {"index": 8, "class": "character", "text": "interactive_retrieval.py", "color": "#D2E3FC", "startPos": 1996, "endPos": 2020, "beforeText": "BGEM3FlagModel_compatible.py         # \u517c\u5bb9\u5305\u88c5\u5668\n\u251c\u2500\u2500 BGEM3FlagModel_ollama_api.py         # \u76f4\u63a5API\u8c03\u7528\n\u251c\u2500\u2500 advanced_retrieval_system.py         # \u9ad8\u7ea7\u68c0\u7d22\u7cfb\u7edf\n\u251c\u2500\u2500 ", "extractionText": "interactive_retrieval.py", "afterText": "             # \u4ea4\u4e92\u5f0f\u754c\u9762\n\u251c\u2500\u2500 demo_retrieval.py                    # \u6f14\u793a\u7cfb\u7edf\n\u251c\u2500\u2500 README_ollama_bge_m3.md              # \u4f7f\u7528\u8bf4\u660e\n\u2514\u2500\u2500 \u68c0\u7d22\u7cfb\u7edf\u6f14\u793a\u603b\u7ed3.md                  ", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>, <span class=\"lx-attr-key\">purpose</span>: <span class=\"lx-attr-value\">\u4ea4\u4e92\u5f0f\u754c\u9762</span>}</div>"}, {"index": 9, "class": "character", "text": "demo_retrieval.py", "color": "#D2E3FC", "startPos": 2045, "endPos": 2062, "beforeText": "BGEM3FlagModel_ollama_api.py         # \u76f4\u63a5API\u8c03\u7528\n\u251c\u2500\u2500 advanced_retrieval_system.py         # \u9ad8\u7ea7\u68c0\u7d22\u7cfb\u7edf\n\u251c\u2500\u2500 interactive_retrieval.py             # \u4ea4\u4e92\u5f0f\u754c\u9762\n\u251c\u2500\u2500 ", "extractionText": "demo_retrieval.py", "afterText": "                    # \u6f14\u793a\u7cfb\u7edf\n\u251c\u2500\u2500 README_ollama_bge_m3.md              # \u4f7f\u7528\u8bf4\u660e\n\u2514\u2500\u2500 \u68c0\u7d22\u7cfb\u7edf\u6f14\u793a\u603b\u7ed3.md                   # \u672c\u6587\u6863\n```\n\n## \ud83d\udd27 \u6280\u672f\u7279\u70b9\n\n### \u8bed\u4e49\u7406\u89e3\u80fd\u529b\n- \u2705 \u7406\u89e3\u67e5\u8be2", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>, <span class=\"lx-attr-key\">purpose</span>: <span class=\"lx-attr-value\">\u6f14\u793a\u7cfb\u7edf</span>}</div>"}, {"index": 10, "class": "character", "text": "README_ollama_bge_m3.md", "color": "#D2E3FC", "startPos": 2093, "endPos": 2116, "beforeText": "\u2500\u2500 advanced_retrieval_system.py         # \u9ad8\u7ea7\u68c0\u7d22\u7cfb\u7edf\n\u251c\u2500\u2500 interactive_retrieval.py             # \u4ea4\u4e92\u5f0f\u754c\u9762\n\u251c\u2500\u2500 demo_retrieval.py                    # \u6f14\u793a\u7cfb\u7edf\n\u251c\u2500\u2500 ", "extractionText": "README_ollama_bge_m3.md", "afterText": "              # \u4f7f\u7528\u8bf4\u660e\n\u2514\u2500\u2500 \u68c0\u7d22\u7cfb\u7edf\u6f14\u793a\u603b\u7ed3.md                   # \u672c\u6587\u6863\n```\n\n## \ud83d\udd27 \u6280\u672f\u7279\u70b9\n\n### \u8bed\u4e49\u7406\u89e3\u80fd\u529b\n- \u2705 \u7406\u89e3\u67e5\u8be2\u610f\u56fe\u800c\u975e\u4ec5\u5339\u914d\u5173\u952e\u8bcd\n- \u2705 \u8de8\u8bed\u8a00\u6982\u5ff5\u5339\u914d (\u82f1\u6587\u67e5\u8be2\u5339\u914d\u76f8\u5173\u6982\u5ff5)\n- \u2705 \u4e0a\u4e0b\u6587\u611f\u77e5\u7684\u76f8\u4f3c\u5ea6\u8ba1\u7b97\n\n#", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>, <span class=\"lx-attr-key\">purpose</span>: <span class=\"lx-attr-value\">\u4f7f\u7528\u8bf4\u660e</span>}</div>"}, {"index": 11, "class": "character", "text": "\u68c0\u7d22\u7cfb\u7edf\u6f14\u793a\u603b\u7ed3.md", "color": "#D2E3FC", "startPos": 2141, "endPos": 2152, "beforeText": "\n\u251c\u2500\u2500 interactive_retrieval.py             # \u4ea4\u4e92\u5f0f\u754c\u9762\n\u251c\u2500\u2500 demo_retrieval.py                    # \u6f14\u793a\u7cfb\u7edf\n\u251c\u2500\u2500 README_ollama_bge_m3.md              # \u4f7f\u7528\u8bf4\u660e\n\u2514\u2500\u2500 ", "extractionText": "\u68c0\u7d22\u7cfb\u7edf\u6f14\u793a\u603b\u7ed3.md", "afterText": "                   # \u672c\u6587\u6863\n```\n\n## \ud83d\udd27 \u6280\u672f\u7279\u70b9\n\n### \u8bed\u4e49\u7406\u89e3\u80fd\u529b\n- \u2705 \u7406\u89e3\u67e5\u8be2\u610f\u56fe\u800c\u975e\u4ec5\u5339\u914d\u5173\u952e\u8bcd\n- \u2705 \u8de8\u8bed\u8a00\u6982\u5ff5\u5339\u914d (\u82f1\u6587\u67e5\u8be2\u5339\u914d\u76f8\u5173\u6982\u5ff5)\n- \u2705 \u4e0a\u4e0b\u6587\u611f\u77e5\u7684\u76f8\u4f3c\u5ea6\u8ba1\u7b97\n\n### \u7cfb\u7edf\u67b6\u6784\u4f18\u52bf\n- \u2705 \u672c\u5730\u90e8\u7f72\uff0c\u6570\u636e\u9690\u79c1\u5b89\u5168\n- \u2705 \u65e0\u9700\u7f51\u7edc\u8fde\u63a5", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">file</span>, <span class=\"lx-attr-key\">purpose</span>: <span class=\"lx-attr-value\">\u672c\u6587\u6863</span>}</div>"}, {"index": 12, "class": "character", "text": "BGEM3FlagModel_compatible.py", "color": "#D2E3FC", "startPos": 2908, "endPos": 2936, "beforeText": "\n### \u63a8\u8350\u4f7f\u7528\u573a\u666f\n- \ud83c\udfaf **\u4f01\u4e1a\u77e5\u8bc6\u5e93\u641c\u7d22**\n- \ud83c\udfaf **\u6280\u672f\u6587\u6863\u68c0\u7d22**  \n- \ud83c\udfaf **FAQ \u81ea\u52a8\u95ee\u7b54**\n- \ud83c\udfaf **\u7814\u7a76\u8d44\u6599\u67e5\u627e**\n\n### \u6700\u4f73\u5b9e\u8df5\n1. **\u65b0\u9879\u76ee**: \u4f7f\u7528 `advanced_retrieval_system.py`\n2. **\u73b0\u6709\u9879\u76ee**: \u4f7f\u7528 `", "extractionText": "BGEM3FlagModel_compatible.py", "afterText": "` \u65e0\u7f1d\u66ff\u6362\n3. **\u5feb\u901f\u6d4b\u8bd5**: \u8fd0\u884c `demo_retrieval.py`\n4. **\u4ea4\u4e92\u4f7f\u7528**: \u8fd0\u884c `interactive_retrieval.py`\n\n## \ud83d\udd2e \u672a\u6765\u6269\u5c55\u65b9\u5411\n\n- \ud83d\ude80 \u652f\u6301\u66f4\u591a\u6587\u6863\u683c\u5f0f (PDF, Word, etc.)\n- \ud83d\ude80 \u6dfb\u52a0\u6587\u6863\u6458\u8981\u548c\u5173\u952e\u8bcd\u63d0\u53d6\n- ", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">project file</span>, <span class=\"lx-attr-key\">action</span>: <span class=\"lx-attr-value\">replacement</span>}</div>"}, {"index": 13, "class": "character", "text": "demo_retrieval.py", "color": "#D2E3FC", "startPos": 2960, "endPos": 2977, "beforeText": "AQ \u81ea\u52a8\u95ee\u7b54**\n- \ud83c\udfaf **\u7814\u7a76\u8d44\u6599\u67e5\u627e**\n\n### \u6700\u4f73\u5b9e\u8df5\n1. **\u65b0\u9879\u76ee**: \u4f7f\u7528 `advanced_retrieval_system.py`\n2. **\u73b0\u6709\u9879\u76ee**: \u4f7f\u7528 `BGEM3FlagModel_compatible.py` \u65e0\u7f1d\u66ff\u6362\n3. **\u5feb\u901f\u6d4b\u8bd5**: \u8fd0\u884c `", "extractionText": "demo_retrieval.py", "afterText": "`\n4. **\u4ea4\u4e92\u4f7f\u7528**: \u8fd0\u884c `interactive_retrieval.py`\n\n## \ud83d\udd2e \u672a\u6765\u6269\u5c55\u65b9\u5411\n\n- \ud83d\ude80 \u652f\u6301\u66f4\u591a\u6587\u6863\u683c\u5f0f (PDF, Word, etc.)\n- \ud83d\ude80 \u6dfb\u52a0\u6587\u6863\u6458\u8981\u548c\u5173\u952e\u8bcd\u63d0\u53d6\n- \ud83d\ude80 \u5b9e\u73b0\u589e\u91cf\u7d22\u5f15\u66f4\u65b0\n- \ud83d\ude80 \u6dfb\u52a0\u67e5\u8be2\u5386\u53f2\u548c\u63a8\u8350\n- \ud83d\ude80 \u652f\u6301\u591a\u6a21\u6001\u68c0\u7d22 (\u6587\u672c+", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">project file</span>, <span class=\"lx-attr-key\">action</span>: <span class=\"lx-attr-value\">running</span>}</div>"}, {"index": 14, "class": "character", "text": "interactive_retrieval.py", "color": "#D2E3FC", "startPos": 2996, "endPos": 3020, "beforeText": ". **\u65b0\u9879\u76ee**: \u4f7f\u7528 `advanced_retrieval_system.py`\n2. **\u73b0\u6709\u9879\u76ee**: \u4f7f\u7528 `BGEM3FlagModel_compatible.py` \u65e0\u7f1d\u66ff\u6362\n3. **\u5feb\u901f\u6d4b\u8bd5**: \u8fd0\u884c `demo_retrieval.py`\n4. **\u4ea4\u4e92\u4f7f\u7528**: \u8fd0\u884c `", "extractionText": "interactive_retrieval.py", "afterText": "`\n\n## \ud83d\udd2e \u672a\u6765\u6269\u5c55\u65b9\u5411\n\n- \ud83d\ude80 \u652f\u6301\u66f4\u591a\u6587\u6863\u683c\u5f0f (PDF, Word, etc.)\n- \ud83d\ude80 \u6dfb\u52a0\u6587\u6863\u6458\u8981\u548c\u5173\u952e\u8bcd\u63d0\u53d6\n- \ud83d\ude80 \u5b9e\u73b0\u589e\u91cf\u7d22\u5f15\u66f4\u65b0\n- \ud83d\ude80 \u6dfb\u52a0\u67e5\u8be2\u5386\u53f2\u548c\u63a8\u8350\n- \ud83d\ude80 \u652f\u6301\u591a\u6a21\u6001\u68c0\u7d22 (\u6587\u672c+\u56fe\u50cf)\n\n---\n\n**\u603b\u7ed3**: \u6210\u529f\u5b9e\u73b0\u4e86\u5b8c\u6574\u7684\u57fa\u4e8e Ollama BGE-M3 ", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">project file</span>, <span class=\"lx-attr-key\">action</span>: <span class=\"lx-attr-value\">running</span>}</div>"}, {"index": 15, "class": "character", "text": "PDF", "color": "#D2E3FC", "startPos": 3050, "endPos": 3053, "beforeText": "**: \u4f7f\u7528 `BGEM3FlagModel_compatible.py` \u65e0\u7f1d\u66ff\u6362\n3. **\u5feb\u901f\u6d4b\u8bd5**: \u8fd0\u884c `demo_retrieval.py`\n4. **\u4ea4\u4e92\u4f7f\u7528**: \u8fd0\u884c `interactive_retrieval.py`\n\n## \ud83d\udd2e \u672a\u6765\u6269\u5c55\u65b9\u5411\n\n- \ud83d\ude80 \u652f\u6301\u66f4\u591a\u6587\u6863\u683c\u5f0f (", "extractionText": "PDF", "afterText": ", Word, etc.)\n- \ud83d\ude80 \u6dfb\u52a0\u6587\u6863\u6458\u8981\u548c\u5173\u952e\u8bcd\u63d0\u53d6\n- \ud83d\ude80 \u5b9e\u73b0\u589e\u91cf\u7d22\u5f15\u66f4\u65b0\n- \ud83d\ude80 \u6dfb\u52a0\u67e5\u8be2\u5386\u53f2\u548c\u63a8\u8350\n- \ud83d\ude80 \u652f\u6301\u591a\u6a21\u6001\u68c0\u7d22 (\u6587\u672c+\u56fe\u50cf)\n\n---\n\n**\u603b\u7ed3**: \u6210\u529f\u5b9e\u73b0\u4e86\u5b8c\u6574\u7684\u57fa\u4e8e Ollama BGE-M3 \u7684\u6587\u6863\u68c0\u7d22\u7cfb\u7edf\uff0c\u5177\u5907\u9ad8\u8d28\u91cf\u7684\u8bed\u4e49\u641c\u7d22\u80fd\u529b\uff0c\u53ef\u4ee5\u51c6\u786e\u627e\u5230\u6700\u76f8\u5173\u7684\u6587\u6863", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">document format</span>, <span class=\"lx-attr-key\">action</span>: <span class=\"lx-attr-value\">support</span>}</div>"}, {"index": 16, "class": "character", "text": "Word", "color": "#D2E3FC", "startPos": 3055, "endPos": 3059, "beforeText": "\u7528 `BGEM3FlagModel_compatible.py` \u65e0\u7f1d\u66ff\u6362\n3. **\u5feb\u901f\u6d4b\u8bd5**: \u8fd0\u884c `demo_retrieval.py`\n4. **\u4ea4\u4e92\u4f7f\u7528**: \u8fd0\u884c `interactive_retrieval.py`\n\n## \ud83d\udd2e \u672a\u6765\u6269\u5c55\u65b9\u5411\n\n- \ud83d\ude80 \u652f\u6301\u66f4\u591a\u6587\u6863\u683c\u5f0f (PDF, ", "extractionText": "Word", "afterText": ", etc.)\n- \ud83d\ude80 \u6dfb\u52a0\u6587\u6863\u6458\u8981\u548c\u5173\u952e\u8bcd\u63d0\u53d6\n- \ud83d\ude80 \u5b9e\u73b0\u589e\u91cf\u7d22\u5f15\u66f4\u65b0\n- \ud83d\ude80 \u6dfb\u52a0\u67e5\u8be2\u5386\u53f2\u548c\u63a8\u8350\n- \ud83d\ude80 \u652f\u6301\u591a\u6a21\u6001\u68c0\u7d22 (\u6587\u672c+\u56fe\u50cf)\n\n---\n\n**\u603b\u7ed3**: \u6210\u529f\u5b9e\u73b0\u4e86\u5b8c\u6574\u7684\u57fa\u4e8e Ollama BGE-M3 \u7684\u6587\u6863\u68c0\u7d22\u7cfb\u7edf\uff0c\u5177\u5907\u9ad8\u8d28\u91cf\u7684\u8bed\u4e49\u641c\u7d22\u80fd\u529b\uff0c\u53ef\u4ee5\u51c6\u786e\u627e\u5230\u6700\u76f8\u5173\u7684\u6587\u6863\u5185\u5bb9\u3002\u7cfb\u7edf\u8bbe", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">document format</span>, <span class=\"lx-attr-key\">action</span>: <span class=\"lx-attr-value\">support</span>}</div>"}, {"index": 17, "class": "character", "text": "Ollama BGE-M3", "color": "#D2E3FC", "startPos": 3156, "endPos": 3169, "beforeText": "e_retrieval.py`\n\n## \ud83d\udd2e \u672a\u6765\u6269\u5c55\u65b9\u5411\n\n- \ud83d\ude80 \u652f\u6301\u66f4\u591a\u6587\u6863\u683c\u5f0f (PDF, Word, etc.)\n- \ud83d\ude80 \u6dfb\u52a0\u6587\u6863\u6458\u8981\u548c\u5173\u952e\u8bcd\u63d0\u53d6\n- \ud83d\ude80 \u5b9e\u73b0\u589e\u91cf\u7d22\u5f15\u66f4\u65b0\n- \ud83d\ude80 \u6dfb\u52a0\u67e5\u8be2\u5386\u53f2\u548c\u63a8\u8350\n- \ud83d\ude80 \u652f\u6301\u591a\u6a21\u6001\u68c0\u7d22 (\u6587\u672c+\u56fe\u50cf)\n\n---\n\n**\u603b\u7ed3**: \u6210\u529f\u5b9e\u73b0\u4e86\u5b8c\u6574\u7684\u57fa\u4e8e ", "extractionText": "Ollama BGE-M3", "afterText": " \u7684\u6587\u6863\u68c0\u7d22\u7cfb\u7edf\uff0c\u5177\u5907\u9ad8\u8d28\u91cf\u7684\u8bed\u4e49\u641c\u7d22\u80fd\u529b\uff0c\u53ef\u4ee5\u51c6\u786e\u627e\u5230\u6700\u76f8\u5173\u7684\u6587\u6863\u5185\u5bb9\u3002\u7cfb\u7edf\u8bbe\u8ba1\u7075\u6d3b\uff0c\u6613\u4e8e\u4f7f\u7528\u548c\u6269\u5c55\u3002\n", "attributesHtml": "<div><strong>class:</strong> character</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">document retrieval system</span>, <span class=\"lx-attr-key\">capability</span>: <span class=\"lx-attr-value\">semantic search</span>}</div>"}];
+        let currentIndex = 0;
+        let isPlaying = false;
+        let animationInterval = null;
+        let animationSpeed = 1.0;
+
+        function updateDisplay() {
+          const extraction = extractions[currentIndex];
+          if (!extraction) return;
+
+          document.getElementById('attributesContainer').innerHTML = extraction.attributesHtml;
+          document.getElementById('entityInfo').textContent = (currentIndex + 1) + '/' + extractions.length;
+          document.getElementById('posInfo').textContent = '[' + extraction.startPos + '-' + extraction.endPos + ']';
+          document.getElementById('progressSlider').value = currentIndex;
+
+          const playBtn = document.querySelector('.lx-control-btn');
+          if (playBtn) playBtn.textContent = isPlaying ? '⏸ Pause' : '▶️ Play';
+
+          const prevHighlight = document.querySelector('.lx-text-window .lx-current-highlight');
+          if (prevHighlight) prevHighlight.classList.remove('lx-current-highlight');
+          const currentSpan = document.querySelector('.lx-text-window span[data-idx="' + currentIndex + '"]');
+          if (currentSpan) {
+            currentSpan.classList.add('lx-current-highlight');
+            currentSpan.scrollIntoView({block: 'center', behavior: 'smooth'});
+          }
+        }
+
+        function nextExtraction() {
+          currentIndex = (currentIndex + 1) % extractions.length;
+          updateDisplay();
+        }
+
+        function prevExtraction() {
+          currentIndex = (currentIndex - 1 + extractions.length) % extractions.length;
+          updateDisplay();
+        }
+
+        function jumpToExtraction(index) {
+          currentIndex = parseInt(index);
+          updateDisplay();
+        }
+
+        function playPause() {
+          if (isPlaying) {
+            clearInterval(animationInterval);
+            isPlaying = false;
+          } else {
+            animationInterval = setInterval(nextExtraction, animationSpeed * 1000);
+            isPlaying = true;
+          }
+          updateDisplay();
+        }
+
+        window.playPause = playPause;
+        window.nextExtraction = nextExtraction;
+        window.prevExtraction = prevExtraction;
+        window.jumpToExtraction = jumpToExtraction;
+
+        updateDisplay();
+      })();
+    </script>
