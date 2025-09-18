@@ -1,6 +1,74 @@
 import requests
 import json
+import sys
 
+
+import os
+from dotenv import load_dotenv
+
+# 加载.env文件中的环境变量
+load_dotenv()
+
+# 将环境变量转换为字典并打印
+env_vars = dict(os.environ)
+# print(env_vars)
+
+class Config:
+    def __init__(self):
+        # 初始化未加载的配置字段（用None标记未加载）
+        self._api_key = None
+        self._database_url = None
+        self._timeout = None
+
+    @property
+    def api_key(self):
+        # 首次访问时自动加载
+        if self._api_key is None:
+            self._load_api_key()
+        return self._api_key
+
+    @property
+    def database_url(self):
+        if self._database_url is None:
+            self._load_database_url()
+        return self._database_url
+
+    @property
+    def timeout(self):
+        if self._timeout is None:
+            self._load_timeout()
+        return self._timeout
+
+    # 实际加载配置的函数（可从.env、数据库、远程接口等来源加载）
+    def _load_api_key(self):
+        print("自动加载API密钥...")
+        load_dotenv()  # 加载.env文件
+        self._api_key = os.getenv("API_KEY", "default_api_key")
+
+    def _load_database_url(self):
+        print("自动加载数据库地址...")
+        load_dotenv()
+        self._database_url = os.getenv("DATABASE_URL", "sqlite:///default.db")
+
+    def _load_timeout(self):
+        print("自动加载超时配置...")
+        # 示例：从配置文件加载（实际可替换为JSON/XML等格式）
+        self._timeout = 30  # 默认值
+
+
+# 使用示例
+if __name__ == "__main__":
+    config = Config()
+    
+    # 首次访问时触发自动加载
+    print(f"API Key: {config.api_key}")  # 输出：自动加载API密钥... 及具体值
+    print(f"Database URL: {config.database_url}")  # 输出：自动加载数据库地址... 及具体值
+    
+    # 第二次访问时直接使用已加载的值（不会重复加载）
+    print(f"再次访问API Key: {config.api_key}")
+    print(f"超时时间: {config.timeout}")
+
+sys.exit() 
 
 def get_weather(city, api_key=None):
     """
